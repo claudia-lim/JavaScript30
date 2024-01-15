@@ -1,34 +1,49 @@
 html {
     background-image: url("background.jpg");
+    background-color: black;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
 }
 
 h1 {
     color: white;
-    background-color: #ff8000;
+    background-image: linear-gradient(#f5ba4f, #e36232);
+    border: 1px white solid;
     text-align: center;
     padding: 1rem;
     width: fit-content;
     margin: 1rem auto;
+    border-radius: 1rem;
 }
 
 .keys {
     display: flex;
-    background-color: #ffffffcc;
+    /*background-color: #ffffffcc;*/
     gap: 1rem;
     justify-content: center;
     padding: 2rem;
     /*width: 70%;*/
     margin: 0 auto;
+    flex-wrap: wrap;
+
 }
 
 p {
     font-size: 0.75rem;
+    color: white;
 }
 
 .key {
-    border: 1px solid black;
+    border: 1px solid white;
+    border-radius: 1rem;
     min-width: 5rem;
-    /*padding: 1rem;*/
+    padding: 1rem;
     text-align: center;
     transition: background-color 250ms;
     transition-timing-function: ease-out;
@@ -39,4 +54,14 @@ p {
 .key-press {
     border: 1px solid #ffcc00;
     box-shadow: #ff2f00 0 0 10px;
+}
+
+footer {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.75rem;
 }
