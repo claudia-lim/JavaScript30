@@ -1,5 +1,14 @@
-main {
+html {
     background-image: url("background.jpg");
+}
+
+h1 {
+    color: white;
+    background-color: #ff8000;
+    text-align: center;
+    padding: 1rem;
+    width: fit-content;
+    margin: 1rem auto;
 }
 
 .keys {
@@ -8,11 +17,26 @@ main {
     gap: 1rem;
     justify-content: center;
     padding: 2rem;
+    /*width: 70%;*/
+    margin: 0 auto;
+}
+
+p {
+    font-size: 0.75rem;
 }
 
 .key {
-    border: 2px solid rgba(204, 25, 25, 0.52);
-    width: 5rem;
-    padding: 1rem;
+    border: 1px solid black;
+    min-width: 5rem;
+    /*padding: 1rem;*/
     text-align: center;
+    transition: background-color 250ms;
+    transition-timing-function: ease-out;
+    background-color: black;
+    color: white;
+}
+
+.key-press {
+    border: 1px solid #ffcc00;
+    box-shadow: #ff2f00 0 0 10px;
 }
