@@ -22,7 +22,7 @@
 function keyTimeOut (key: HTMLDivElement): void {
     key.classList.remove("key-press");
 }
-window.addEventListener('keydown', (e) => {
+window.addEventListener('keydown', (e: KeyboardEvent): void => {
     const audio = document.querySelector<HTMLAudioElement>(`audio[data-key=${e.key}]`)
     const key = document.querySelector<HTMLDivElement>(`div[data-key=${e.key}]`);
 
