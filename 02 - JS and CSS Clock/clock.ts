@@ -19,10 +19,20 @@ function showTime (): void {
 
     const currentMinutes: number = currentTime.getMinutes();
     const minutesDegrees: number = ((currentMinutes/60) * 360) + 90;
+    if (minutesDegrees == 90) {
+        minutesHand.style.transition = 'all 0s';
+    } else {
+        minutesHand.style.transition = 'all 0.5s cubic-bezier(0.43, 0.45, 0, 1.64)';
+    }
     minutesHand.style.transform = `rotate(${minutesDegrees}deg)`;
 
     const currentHour: number = currentTime.getHours();
     const hourDegrees: number = ((currentHour/12) * 360) + 90;
+    if (hourDegrees == 90) {
+        hoursHand.style.transition = 'all 0s';
+    } else {
+        hoursHand.style.transition = 'all 0.5s cubic-bezier(0.43, 0.45, 0, 1.64)';
+    }
     hoursHand.style.transform = `rotate(${hourDegrees}deg)`;
 }
 

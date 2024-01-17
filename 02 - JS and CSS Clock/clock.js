@@ -18,9 +18,21 @@ function showTime() {
     secondsHand.style.transform = "rotate(".concat(secondsDegrees, "deg)");
     var currentMinutes = currentTime.getMinutes();
     var minutesDegrees = ((currentMinutes / 60) * 360) + 90;
+    if (minutesDegrees == 90) {
+        minutesHand.style.transition = 'all 0s';
+    }
+    else {
+        minutesHand.style.transition = 'all 0.5s cubic-bezier(0.43, 0.45, 0, 1.64)';
+    }
     minutesHand.style.transform = "rotate(".concat(minutesDegrees, "deg)");
     var currentHour = currentTime.getHours();
     var hourDegrees = ((currentHour / 12) * 360) + 90;
+    if (hourDegrees == 90) {
+        hoursHand.style.transition = 'all 0s';
+    }
+    else {
+        hoursHand.style.transition = 'all 0.5s cubic-bezier(0.43, 0.45, 0, 1.64)';
+    }
     hoursHand.style.transform = "rotate(".concat(hourDegrees, "deg)");
 }
 setInterval(showTime, 1000);
