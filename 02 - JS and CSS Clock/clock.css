@@ -1,0 +1,91 @@
+html {
+    background-color: #3B5998;
+    color: #b44336;
+}
+
+h1 {
+    text-align: center;
+    background-color: #8da7be;
+    width: fit-content;
+    margin: 1rem auto;
+    padding: 1rem;
+    font-family: 'helvetica neue', sans-serif;
+}
+
+#clock {
+    width: 50vh;
+    height: 50vh;
+    border-radius: 50%;
+    background-color: #8da7be;
+    margin: 15vh auto;
+    display: grid;
+    box-shadow: #0c152e 5px 5px 10px;
+}
+
+#clock-face, #hands {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+#hands {
+    transform: translateY(-6px);
+}
+
+.hand {
+    height: 12px;
+    margin: 0;
+    padding: 0;
+    border-radius: 1rem;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform-origin: 100%;
+    transition-timing-function: cubic-bezier(0.43, 0.45, 0, 1.64);
+}
+
+#seconds-hand {
+    width: 45%;
+    background-color: #3a5bae
+}
+
+#minutes-hand {
+    width: 35%;
+    background-color: #263d74
+}
+
+#hours-hand {
+    width: 28%;
+    background-color: #2e2e4d;
+}
+
+.clock-mark {
+    width: 48%;
+    height: 4px;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transform-origin: 100%;
+}
+
+.mark {
+    width: 2%;
+    height: 100%;
+    background-color: #b44336;
+    border-radius: 50%;
+}
+
+footer {
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+a, a:visited {
+    color: #b44336;
+    text-decoration: none;
+}
