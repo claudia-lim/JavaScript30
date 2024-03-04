@@ -26,6 +26,7 @@ function showTime() {
     }
     minutesHand.style.transform = "rotate(".concat(minutesDegrees, "deg)");
     var currentHour = currentTime.getHours();
+    console.log('hour: ', currentHour);
     var hourDegrees = ((currentHour / 12) * 360) + 90;
     if (hourDegrees == 90) {
         hoursHand.style.transition = 'all 0s';
