@@ -72,8 +72,14 @@ inventors.forEach(function (inventor) {
 });
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+// const linksArray= Array.from(document.querySelectorAll('#mw-pages a'));
+// const boulevardsArray = linksArray.map((link) => {return link.innerText;});
+// const de = boulevardsArray.filter((link)=>link.includes('de'));
 // 7. sort Exercise
 // Sort the people alphabetically by last name
+people.sort();
+var lastNameList = document.querySelector("#lastname");
+people.forEach(function (person) { return lastNameList.innerHTML += "<li>" + person + "</li>"; });
 // 8. Reduce Exercise
 // Sum up the instances of each of these
 var data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
