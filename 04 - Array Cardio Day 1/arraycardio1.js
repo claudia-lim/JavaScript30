@@ -91,4 +91,7 @@ var results = data.reduce(function (accum, current) {
     accum[current]++;
     return accum;
 }, {});
-console.table(results);
+var vehicleTable = document.querySelector("#vehicles");
+for (var vehicle in results) {
+    vehicleTable.innerHTML += "<tr><td style=\"border: 1px solid black;\">".concat(vehicle, "</td> <td style=\"border: 1px solid black;\">").concat(results[vehicle], "</td></tr>");
+}

@@ -109,4 +109,7 @@ const results: Record<string, number> = data.reduce(
     return accum;
 }, {})
 
-console.table(results);
+const vehicleTable = document.querySelector<HTMLTableElement>("#vehicles");
+for (const vehicle in results) {
+    vehicleTable.innerHTML += `<tr><td style="border: 1px solid black;">${vehicle}</td> <td style="border: 1px solid black;">${results[vehicle]}</td></tr>`;
+}
