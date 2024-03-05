@@ -36,35 +36,27 @@ var firstlast = inventors.map(function (inventor) {
 });
 // console.table(firstlast)
 var fullnamelist = document.querySelector("#fullname");
-firstlast.forEach(function (inventor) {
-    fullnamelist.innerHTML += "<li>".concat(inventor, "</li>");
-});
+firstlast.forEach(function (inventor) { return fullnamelist.innerHTML += "<li>".concat(inventor, "</li>"); });
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest
-inventors.sort(function (a, b) {
-    return a.year - b.year;
-});
-// console.table(inventors);
+inventors.sort(function (a, b) { return a.year - b.year; });
 var sortList = document.querySelector("#sort");
 inventors.forEach(function (inventor) {
-    sortList.innerHTML += "<li>".concat(inventor.first, " ").concat(inventor.last, " - born in ").concat(inventor.year, "</li>");
+    return sortList.innerHTML += "<li>".concat(inventor.first, " ").concat(inventor.last, " - born in ").concat(inventor.year, "</li>");
 });
 // Array.prototype.reduce()
 // 4. How many years did all the inventors live all together?
 var yearsLived = inventors.reduce(function (accum, current) {
     return accum + (current.passed - current.year);
 }, 0);
-// console.log('years lived', yearsLived);
 var yearsPara = document.querySelector("#years");
 yearsPara.innerHTML = yearsLived.toString() + " years lived in total.";
 // 5. Sort the inventors by years lived
 inventors.sort(function (a, b) {
     var ageA = a.passed - a.year;
     var ageB = b.passed - b.year;
-    // console.log(a.first, ageA)
     return (ageA - ageB);
 });
-// console.log(inventors);
 var livedList = document.querySelector("#lived");
 inventors.forEach(function (inventor) {
     var age = inventor.passed - inventor.year;
@@ -83,3 +75,20 @@ people.forEach(function (person) { return lastNameList.innerHTML += "<li>" + per
 // 8. Reduce Exercise
 // Sum up the instances of each of these
 var data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
+// const results: Record<string,number> = {};
+// //Record - generic for objects - then define the types of the key and the value
+// data.forEach((type: string): void => {
+//     if (type in results) {
+//         results[type] = results[type] + 1;
+//     } else {
+//         results[type] = 1;
+//     }
+// })
+var results = data.reduce(function (accum, current) {
+    if (!accum[current]) {
+        accum[current] = 0;
+    }
+    accum[current]++;
+    return accum;
+}, {});
+console.table(results);

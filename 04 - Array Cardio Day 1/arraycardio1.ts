@@ -46,28 +46,20 @@ const firstlast: Array<string> = inventors.map((inventor: Inventor) => {
 })
 // console.table(firstlast)
 const fullnamelist = document.querySelector<HTMLUListElement>("#fullname");
-firstlast.forEach((inventor: string) => {
-    fullnamelist.innerHTML += `<li>${inventor}</li>`;
-})
+firstlast.forEach((inventor: string): string => fullnamelist.innerHTML += `<li>${inventor}</li>`);
 
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest
-inventors.sort((a: Inventor, b: Inventor): number => {
-return a.year - b.year;
-})
-// console.table(inventors);
+inventors.sort((a: Inventor, b: Inventor): number => a.year - b.year);
 const sortList = document.querySelector<HTMLOListElement>("#sort")
-inventors.forEach((inventor:Inventor): void => {
-    sortList.innerHTML += `<li>${inventor.first} ${inventor.last} - born in ${inventor.year}</li>`;
-})
+inventors.forEach((inventor:Inventor): string =>
+    sortList.innerHTML += `<li>${inventor.first} ${inventor.last} - born in ${inventor.year}</li>`);
 
 // Array.prototype.reduce()
 // 4. How many years did all the inventors live all together?
 const yearsLived: number = inventors.reduce((accum: number, current: Inventor) => {
     return accum + (current.passed - current.year);
 }, 0)
-
-// console.log('years lived', yearsLived);
 const yearsPara = document.querySelector<HTMLParagraphElement>("#years");
 yearsPara.innerHTML = yearsLived.toString() + " years lived in total.";
 
@@ -75,10 +67,8 @@ yearsPara.innerHTML = yearsLived.toString() + " years lived in total.";
 inventors.sort((a: Inventor, b: Inventor): number => {
     const ageA: number = a.passed - a.year;
     const ageB: number = b.passed - b.year;
-    // console.log(a.first, ageA)
     return (ageA - ageB);
 })
-// console.log(inventors);
 const livedList = document.querySelector<HTMLOListElement>("#lived");
 inventors.forEach((inventor: Inventor): void => {
     const age: number = inventor.passed - inventor.year;
@@ -99,4 +89,24 @@ people.forEach((person: string): string => lastNameList.innerHTML += "<li>" + pe
 
 // 8. Reduce Exercise
 // Sum up the instances of each of these
-const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+const data: Array<string> = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+// const results: Record<string,number> = {};
+// //Record - generic for objects - then define the types of the key and the value
+// data.forEach((type: string): void => {
+//     if (type in results) {
+//         results[type] = results[type] + 1;
+//     } else {
+//         results[type] = 1;
+//     }
+// })
+
+const results: Record<string, number> = data.reduce(
+    (accum: Record<string, number>, current:string) => {
+    if (!accum[current]) {
+        accum[current] = 0;
+    }
+    accum[current]++;
+    return accum;
+}, {})
+
+console.table(results);
